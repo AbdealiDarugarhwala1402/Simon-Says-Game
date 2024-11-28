@@ -44,7 +44,7 @@ function checkAns(idx) {
     }
     else {
         h4.innerHTML = `Game over! Your score was <b> ${highest_Score} </b> <br> Press any key to start game`;
-        document.querySelector("body").style.backgroundcolor = "red";
+        document.querySelector("body").style.backgroundColor = "red";
         setTimeout(function() {
             document.querySelector("body").style.backgroundColor = "white";
         },250);
