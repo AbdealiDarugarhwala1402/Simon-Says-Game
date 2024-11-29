@@ -1,7 +1,7 @@
 let gameSeq = [];
 let userSeq = [];
 
-let started = false;
+let started = false; // Game has not started
 let level = 0;
 let highest_Score = 0;
 
@@ -14,7 +14,7 @@ const highScore = document.createElement("h5");
 highScore.innerHTML = "Highest Score: " + highest_Score;
 btnContainer.insertAdjacentElement("beforebegin", highScore);
 
-// Keypress event listener
+// Keypress event listener to start the game
 document.addEventListener("keypress", () => {
     if (!started) {
         started = true;
@@ -61,8 +61,11 @@ function checkAns(idx) {
 }
 
 function btnPress() {
+    // Do nothing if the game has not started
+    if (!started) return;
+
     const btn = this;
-    const userColor = btn.getAttribute("id"); // Fixed: Scoped variable declaration
+    const userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
     // Flash the button

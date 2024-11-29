@@ -1,25 +1,65 @@
+/* General styling for the body */
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-image: url("istockphoto-1419620682-2048x2048.jpg");
+    align-items: center;
+    background-image: url("background_18.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+    color: white; /* Better contrast for text */
+    padding: 10px;
 }
 
+/* Heading styles */
+h4 {
+    font-size: 2rem;
+    margin: 10px;
+    text-shadow: 2px 2px 5px black;
+}
+
+h5 {
+    font-size: 1.5rem;
+    margin: 10px;
+    text-shadow: 2px 2px 5px black;
+}
+
+/* Button container styling */
 .btn-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px; /* Adds spacing between buttons */
+    max-width: 90%; /* Prevents buttons from overflowing the screen */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent white background */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    border-radius: 15px; /* Slightly rounded corners */
 }
 
+/* Button styling */
 .btn {
-    width: 200px;
-    height: 200px;
-    border: 8px solid black;
+    width: 15vw;
+    height: 15vw;
+    max-width: 150px; /* Ensures buttons don't become too large */
+    max-height: 150px; /* Ensures buttons don't become too large */
+    border: none; /* Removed black border from buttons */
     border-radius: 20%;
-    margin: 15px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Adds animation for hover effect */
 }
 
+.btn:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
 
+/* Button colors */
 .red {
     background-color: rgb(208, 94, 94);
 }
@@ -36,10 +76,41 @@ body {
     background-color: rgb(181, 181, 69);
 }
 
+/* Flashing button effect */
 .flash {
-    background-color: white;
+    background-color: white !important; /* Overrides the button's default color */
+    transition: background-color 0.3s ease;
 }
 
+/* User flash effect */
 .userflash {
-    background-color: rgb(145, 193, 145);
+    background-color: rgb(145, 193, 145) !important; /* Overrides the button's default color */
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h4, h5 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        width: 20vw;
+        height: 20vw;
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    h4, h5 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        width: 25vw;
+        height: 25vw;
+        max-width: 100px;
+        max-height: 100px;
+    }
 }
