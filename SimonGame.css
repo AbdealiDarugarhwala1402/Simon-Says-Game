@@ -29,6 +29,34 @@ h5 {
     text-shadow: 2px 2px 5px black;
 }
 
+/* Start Button Styling */
+#start-btn {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#start-btn:hover {
+    background-color: #218838; /* Slightly darker green on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7); /* More prominent shadow on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+#start-btn:active {
+    background-color: #1e7e34; /* Even darker green when pressed */
+    transform: scale(0.95); /* Shrink effect on click */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4); /* Reduced shadow */
+}
+
+
 /* Button container styling */
 .btn-container {
     display: flex;
@@ -100,6 +128,11 @@ h5 {
         max-width: 120px;
         max-height: 120px;
     }
+
+    #start-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -112,5 +145,10 @@ h5 {
         height: 25vw;
         max-width: 100px;
         max-height: 100px;
+    }
+
+    #start-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
 }

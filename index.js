@@ -7,6 +7,7 @@ let highest_Score = 0;
 
 const btns = ["red", "blue", "green", "yellow"];
 const h4 = document.querySelector("h4");
+const startBtn = document.querySelector("#start-btn"); // Start button
 const btnContainer = document.querySelector(".btn-container");
 
 // Add highest score display
@@ -14,13 +15,17 @@ const highScore = document.createElement("h5");
 highScore.innerHTML = "Highest Score: " + highest_Score;
 btnContainer.insertAdjacentElement("beforebegin", highScore);
 
-// Keypress event listener to start the game
-document.addEventListener("keypress", () => {
+// Start game function
+function startGame() {
     if (!started) {
         started = true;
+        startBtn.style.display = "none"; // Hide the Start button after the game starts
         levelUp();
     }
-});
+}
+
+// Add click event to Start button for all devices
+startBtn.addEventListener("click", startGame);
 
 function levelUp() {
     userSeq = [];
@@ -28,7 +33,7 @@ function levelUp() {
     h4.innerText = "Level " + level;
 
     // Generate a random button and add to sequence
-    const randomIndex = Math.floor(Math.random() * 4); // Fixed: 0 to 3 range
+    const randomIndex = Math.floor(Math.random() * 4);
     const randomColor = btns[randomIndex];
     const randomBtn = document.querySelector(`.${randomColor}`);
     gameSeq.push(randomColor);
@@ -48,7 +53,7 @@ function checkAns(idx) {
         }
     } else {
         // Game over
-        h4.innerHTML = `Game Over! Your score was <b>${highest_Score}</b><br>Press any key to start again`;
+        h4.innerHTML = `Game Over! Your score was <b>${highest_Score}</b><br>Press Start Game to play again`;
         document.querySelector("body").style.backgroundColor = "red";
 
         // Clear red background after delay
@@ -56,13 +61,14 @@ function checkAns(idx) {
             document.querySelector("body").style.backgroundColor = "white";
         }, 500);
 
+        // Reset game and show Start button
         reset();
+        startBtn.style.display = "block";
     }
 }
 
 function btnPress() {
-    // Do nothing if the game has not started
-    if (!started) return;
+    if (!started) return; // Ignore button presses if the game hasn't started
 
     const btn = this;
     const userColor = btn.getAttribute("id");
