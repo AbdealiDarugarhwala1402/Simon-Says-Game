@@ -71,6 +71,7 @@ function btnPress() {
     if (!started) return; // Ignore button presses if the game hasn't started
 
     const btn = this;
+    btn.blur();
     const userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 

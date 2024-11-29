@@ -81,6 +81,13 @@ h5 {
     margin: 10px;
     cursor: pointer;
     transition: transform 0.2s ease; /* Adds animation for hover effect */
+    user-select: none;
+}
+
+.btn:focus {
+    outline: none; /* Remove default focus outline */
+    pointer-events: none; /* Disable interaction temporarily */
+    cursor: default; /* Hide the typing cursor */
 }
 
 .btn:hover {
